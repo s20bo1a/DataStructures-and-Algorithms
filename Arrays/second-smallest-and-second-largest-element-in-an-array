@@ -1,0 +1,45 @@
+public class Solution {
+     public static int secondlarge(int a[],int n){
+        int sl=-1;
+         int l=a[0];
+         for(int i=1;i<n;i++){
+             if(a[i]>l){
+                 sl=l;
+                 l=a[i];
+             }
+             else if(a[i]<l && a[i]>sl){
+                 sl=a[i];
+             }
+         }
+
+       return sl;
+     }
+      public static int secondsmall(int a[],int n){
+        int ss=Integer.MAX_VALUE;
+         int s=a[0];
+         for(int i=1;i<n;i++){
+             if(a[i]<s){
+                 ss=s;
+                 s=a[i];
+             }
+             else if(a[i]>s && a[i]<ss){
+                 ss=a[i];
+             }
+         }
+
+       return ss;
+     }
+
+
+
+    public static int[] getSecondOrderElements(int n, int []a) {
+        // Write your code here.
+      int arr[]=new int[2];
+      int slarge=secondlarge(a,n);
+      int ssmall=secondsmall(a,n);
+      arr[0]=slarge;
+      arr[1]=ssmall;
+      return arr;
+
+    }
+}
