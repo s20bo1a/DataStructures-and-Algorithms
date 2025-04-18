@@ -1,0 +1,30 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+
+      if(nums.length==0){
+        return;
+     }
+    
+      int n= nums.length; 
+      k=k%n; 
+      if(k>n){
+        return;
+      }
+     int temp[]=new int[n];
+     int l=0;
+     for(int i=n-k;i<n;i++){
+        temp[l++]=nums[i];
+     }
+
+
+     for(int i=0;i<n-k;i++){
+         temp[i+k]=nums[i];
+     }
+
+      for(int i=0;i<n;i++){
+        nums[i]=temp[i];
+      }
+
+
+    }
+}
