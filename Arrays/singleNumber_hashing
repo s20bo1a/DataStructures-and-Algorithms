@@ -1,0 +1,23 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        int n =nums.length;
+        int res=-1;
+        int max=nums[0];
+        for(int i=1;i<n;i++ ){
+            if(max<nums[i]){
+                max= nums[i];
+            }
+        }
+        int hash[]=new int[max+1];
+     for(int i=0;i<nums.length;i++){
+             hash[nums[i]]++;
+        }
+      for(int i=0;i<max+1;i++){
+           if(hash[i]==1){
+              res=i;
+           }
+      }
+      
+      return res;
+    }
+}
